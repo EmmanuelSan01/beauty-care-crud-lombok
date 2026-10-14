@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/layout :: head(${titulo})}"></head>
+<body>
+<nav th:replace="~{fragments/layout :: navbar}"></nav>
+
+<main class="container pb-5" style="max-width: 720px;">
+
+    <h1 class="h3 mb-3" th:text="${titulo}">Nueva reserva</h1>
+
+    <div class="card card-bc">
+        <div class="card-body p-4">
+
+            <form th:action="@{/productos/guardar}" th:object="${producto}" method="post" novalidate>
+                <!-- Si tiene id, se esta editando; si no, se esta creando -->
+                <input type="hidden" th:field="*{id}">
+
+                <div class="mb-3">
+                    <label for="usuario" class="form-label">Usuario</label>
+                    <input type="text" id="usuario" class="form-control" th:field="*{usuario}"
+                           th:errorclass="is-invalid" maxlength="80">
+                    <div class="invalid-feedback" th:errors="*{usuario}">Error</div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="sala" class="form-label">Sala</label>
+                    <select id="sala" class="form-select" th:field="*{sala}" th:errorclass="is-invalid">
+                        <option value="">Selecciona...</option>
+                        <option th:each="c : ${salas}" th:value="${c}" th:text="${c}">Categoría</option>
+                    </select>
+                    <div class="invalid-feedback" th:errors="*{sala}">Error</div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-6 mb-3">
+                        <label for="horas" class="form-label">Horas</label>
+                        <div class="input-group has-validation">                            
+                            <input type="number" id="horas" class="form-control" th:field="*{horas}"
+                                   th:errorclass="is-invalid" min="1" step="1">
+                            <div class="invalid-feedback" th:errors="*{horas}">Error</div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 mb-3">
+                        <label for="equipo" class="form-label">Equipo</label>
+                        <input type="number" id="equipo" class="form-control" th:field="*{equipo}"
+                               th:errorclass="is-invalid" min="0">
+                        <div class="invalid-feedback" th:errors="*{equipo}">Error</div>
+                    </div>
+                </div>
+
+                <div class="mb-4">
+                    <label for="motivo" class="form-label">Motivo <span class="text-muted">(opcional)</span></label>
+                    <textarea id="motivo" class="form-control" rows="3" th:field="*{motivo}"
+                              th:errorclass="is-invalid" maxlength="255"></textarea>
+                    <div class="invalid-feedback" th:errors="*{motivo}">Error</div>
+                </div>
+
+                <div class="d-flex gap-2">
+                    <button type="submit" class="btn btn-bc">Guardar</button>
+                    <a class="btn btn-outline-secondary" th:href="@{/productos}">Cancelar</a>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

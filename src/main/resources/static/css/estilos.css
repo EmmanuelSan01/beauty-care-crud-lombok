@@ -1,0 +1,69 @@
+/* Paleta Beauty Care: verde salvia + rosa suave, sobre Bootstrap 5 */
+:root {
+  --bc-sage: #f97316;
+  --bc-sage-dark: #ea580c;
+  --bc-rose: #7e22ce;
+  --bc-cream: #6b21a8;
+  --bs-body-bg: var(--bc-cream);
+  --bs-body-color: #fff;
+  --bs-link-color: #fff;
+  --bs-link-hover-color: #ffffff;
+}
+
+body {
+    background: var(--bc-cream);
+    color: #fff;
+}
+
+.navbar-bc { background: var(--bc-sage-dark); }
+.navbar-bc .navbar-brand { color: #fff; font-weight: 600; letter-spacing: .3px; }
+
+.btn-bc {
+  --bs-btn-color: #fff;
+  --bs-btn-bg: var(--bc-sage);
+  --bs-btn-border-color: var(--bc-sage);
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: var(--bc-sage-dark);
+  --bs-btn-hover-border-color: var(--bc-sage-dark);
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: var(--bc-sage-dark);
+  --bs-btn-active-border-color: var(--bc-sage-dark);
+  color: #fff;
+}
+
+.card-bc { border: 0; box-shadow: 0 2px 10px rgba(79, 113, 86, .12); border-radius: 14px; }
+.table thead th { background: var(--bc-rose); color: #4a3430; border: 0; }
+.badge-categoria { background: var(--bc-rose); color: #4a3430; font-weight: 500; }
+.form-control:focus, .form-select:focus {
+  border-color: var(--bc-sage);
+  box-shadow: 0 0 0 .2rem rgba(107, 143, 113, .25);
+}
+
+body, 
+.card, 
+.table, 
+.table td, 
+.table th {
+  color: #fff !important;
+}
+
+/* Cambiar los textos secundarios/atenuados (text-muted) a un blanco suave */
+.text-muted, 
+.small.text-muted {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+/* Ajustar botones de la tabla para que se vean sobre fondo oscuro */
+.btn-outline-secondary {
+  color: #fff !important;
+  border-color: rgba(255, 255, 255, 0.5) !important;
+}
+
+.btn-outline-secondary:hover {
+  background-color: #fff !important;
+  color: #000 !important;
+}
+
+.badge-categoria {
+    color: #fff
+}
